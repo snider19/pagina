@@ -1,8 +1,6 @@
-var contador = 0; 
+var contador = 0;
 
-function login(event) {
-    event.preventDefault(); // Evita el envío del formulario
-
+function login() {
     var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
 
@@ -11,11 +9,12 @@ function login(event) {
     } else {
         contador++;
         alert('Usuario o contraseña incorrectos');
-        if (contador === 3) {
+        if (contador >= 3) {
             alert('Has superado el número de intentos');
-            document.getElementById('username').disabled = true;
-            document.getElementById('password').disabled = true;
-            document.querySelector('button[type="submit"]').disabled = true;
+            // Deshabilitar el botón de login o hacer otra acción
+            document.getElementById('loginButton').disabled = true;
+            // También puedes ocultar el formulario o redirigir a otra página, etc.
         }
     }
 }
+
